@@ -17,54 +17,23 @@ import sys, os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 curr_path = os.path.abspath(os.path.dirname(__file__))
-source_path = os.path.join(curr_path, '..', '..')
+project_path = os.path.join(curr_path, '..', 'project')
 
-sys.path.insert(0, curr_path)
-sys.path.insert(0, '/usr/local/google_appengine/lib/django')
-sys.path.insert(0, '/usr/local/google_appengine/lib/webob')
-sys.path.insert(0, '/usr/local/google_appengine/lib/yaml/lib')
-sys.path.insert(0, '/usr/local/google_appengine')
+# SDK
+sdk_path = os.path.join(project_path, 'etc', 'parts', 'google_appengine')
+sys.path.insert(0, os.path.join(sdk_path, 'lib', 'django'))
+sys.path.insert(0, os.path.join(sdk_path, 'lib', 'webob'))
+sys.path.insert(0, os.path.join(sdk_path, 'lib', 'yaml', 'lib'))
+sys.path.insert(0, sdk_path)
 
-tipfy_ext = [
-    'tipfy.ext.acl',
-    'tipfy.ext.appstats',
-    'tipfy.ext.auth',
-    'tipfy.ext.acl',
-    # not released yet.
-    # 'tipfy.ext.auth.facebook',
-    # 'tipfy.ext.auth.friendfeed',
-    # 'tipfy.ext.auth.google',
-    # 'tipfy.ext.auth.oauth',
-    'tipfy.ext.auth.openid',
-    # not released yet.
-    # 'tipfy.ext.auth.twitter',
-    'tipfy.ext.blobstore',
-    'tipfy.ext.db',
-    'tipfy.ext.debugger',
-    'tipfy.ext.i18n',
-    'tipfy.ext.jinja2',
-    'tipfy.ext.mail',
-    'tipfy.ext.mako',
-    # not released yet.
-    # 'tipfy.ext.marketplace',
-    'tipfy.ext.session',
-    'tipfy.ext.taskqueue',
-    'tipfy.ext.xmpp',
-    # not released yet.
-    # 'tipfy.ext.prediction',
-]
-
-for ext in tipfy_ext:
-    ext_path = os.path.join(source_path, 'extensions', ext)
-    sys.path.insert(0, ext_path)
-
-sys.path.insert(0, source_path)
+# App libs.
+sys.path.insert(0, os.path.join(project_path, 'app', 'distlib'))
 
 # -- General configuration -----------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx', 'sphinx.ext.coverage', 'creole_builder']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx', 'sphinx.ext.coverage']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -80,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Tipfy'
-copyright = u'2009, Tipfy Group'
+copyright = u'2010, Tipfy Group'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -164,7 +133,7 @@ html_theme_path = ['./_theme']
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+# html_static_path = ['_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
