@@ -1,0 +1,19 @@
+\.py[co]$
+\.DS_Store$
+\.coverage
+\.egg-info
+\.bak
+\.swp
+dist
+temp
+docs/build
+docs/project
+tests/project
+
+# ZC buildout; see http://www.buildout.org/docs/dirstruct.html
+project/\.installed.cfg
+project/var/parts
+project/var/develop-eggs
+project/bin
+project/eggs
+project/var/downloads
