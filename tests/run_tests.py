@@ -20,6 +20,7 @@ if __name__ == '__main__':
     tipfy = os.path.join(base, '..')
     app   = os.path.join(base, 'project', 'app', 'distlib')
     sys.path[0:0] = [tipfy, app]
+    #sys.path.insert(0, '/home/moraes/lib/google_appengine')
 
     argv = [__file__]
     argv += '-d --with-gae -P --without-sandbox --cover-erase --with-coverage --cover-package=tipfy --gae-application=./project/app'.split()
