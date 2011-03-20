@@ -1,0 +1,4 @@
+.. _guide.index:
+
+Guide
+=====
